@@ -8,16 +8,20 @@ folder_path = f"{current_directory}\\Analyze Best Selling Amazon Books"
 df = pd.read_csv(f'{folder_path}\\bestsellers.csv')
 
 # Get the first 5 rows of the spreadsheet
+print("📄 First 5 rows of the dataset:")
 print(df.head())
 
 # Get the shape of the spreadsheet
+print("📊 Dataset shape:")
 print(df.shape)
 
-# Get the column names of the spreadsheet Index(['Name', 'Author', 'User Rating', 'Reviews', 'Price', 'Year', 'Genre'], dtype='object')
+# Get the column names of the spreadsheet
+print("🗂️  Column names:")
 print(df.columns)
 
 
 # Get summary statistics for each column
+print("📈 Summary statistics:")
 print(df.describe())
 
 
@@ -31,7 +35,8 @@ df.rename(columns={"Name": "Title", "Year": "Publication Year", "User Rating": "
 # Converting Data Types
 df["Price"] = df["Price"].astype(float)
 
-#Analyzing Author Popularity
+# Analyzing Author Popularity
+print("👩‍💻👨‍💻 Author popularity (number of books listed):")
 author_counts = df['Author'].value_counts()
 print(author_counts)
 
@@ -39,6 +44,7 @@ print('---------------------------------')
 
 
 # Average Rating by Genre
+print("⭐ Average rating by genre:")
 avg_rating_by_genre = df.groupby("Genre")["Rating"].mean()
 print(avg_rating_by_genre)
 
